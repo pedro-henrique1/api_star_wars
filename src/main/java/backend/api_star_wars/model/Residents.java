@@ -9,7 +9,7 @@ import lombok.Setter;
 @Table(name = "planet_residents")
 @Getter
 @Setter
-public class residents {
+public class Residents {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +17,7 @@ public class residents {
 
     @ManyToOne
     @JoinColumn(name = "planet_id", nullable = false)
-    private planets planet_id;
+    private Planets planet_id;
 
     private String resident_url;
 

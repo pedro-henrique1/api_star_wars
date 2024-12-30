@@ -9,14 +9,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "planet_films")
-public class films {
+public class Films {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "planet_id", nullable = false)
-    private planets planet;
+    private Planets planet;
 
     private String film_url;
 }

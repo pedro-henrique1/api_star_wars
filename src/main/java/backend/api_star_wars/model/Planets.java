@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class planets {
+public class Planets {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,8 +45,8 @@ public class planets {
     private Date edited_at;
 
     @OneToMany(mappedBy = "planet", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<residents> residents;
+    private List<Residents> residents;
 
     @OneToMany(mappedBy = "planet", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<films> films;
+    private List<Films> films;
 }
