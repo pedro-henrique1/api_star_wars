@@ -2,6 +2,7 @@ package backend.api_star_wars.model;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,8 +13,8 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
+@Table(name = "planets")
 public class Planets {
 
     @Id
@@ -44,7 +45,7 @@ public class Planets {
     @UpdateTimestamp
     private Date edited_at;
 
-    @OneToMany(mappedBy = "planet", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "planet_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Residents> residents;
 
     @OneToMany(mappedBy = "planet", cascade = CascadeType.ALL, orphanRemoval = true)

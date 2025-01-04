@@ -1,14 +1,14 @@
 package backend.api_star_wars.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 
 @Entity
-@Getter
-@Setter
 @Table(name = "planet_films")
+@Data
 public class Films {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
