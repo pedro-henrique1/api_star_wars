@@ -1,9 +1,11 @@
 package backend.api_star_wars.service;
 
-import backend.api_star_wars.model.Planets;
 import backend.api_star_wars.repository.PlanetsRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlanetsService {
@@ -15,7 +17,7 @@ public class PlanetsService {
     }
 
     public ResponseEntity<?> GetSearchPlanets(String planet) {
-        String result = planetsRepository.searchPlanetsByName(planet);
+        List<?> result = planetsRepository.searchPlanetsByName(planet);
         return ResponseEntity.ok(result);
     }
 }

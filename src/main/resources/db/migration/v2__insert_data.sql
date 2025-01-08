@@ -1,25 +1,25 @@
 INSERT INTO planets (id, name, rotation_period, orbital_period, diameter, climate, gravity, terrain, surface_water,
-                     population, created_at, edited_at, url)
+                     population, created_at, edited_at)
 VALUES (1, 'Tatooine', 23, 304, 10465, 'arid', '1 standard', 'desert', 1, 200000, '2014-12-09 13:50:49',
-        '2014-12-20 20:58:18', 'https://swapi.info/api/planets/1'),
+        '2014-12-20'),
        (2, 'Alderaan', 24, 364, 12500, 'temperate', '1 standard', 'grasslands, mountains', 40, 2000000000,
-        '2014-12-10 11:35:48', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/2'),
+        '2014-12-10 11:35:48', '2014-12-20'),
        (3, 'Yavin IV', 24, 4818, 10200, 'temperate, tropical', '1 standard', 'jungle, rainforests', 8, 1000,
-        '2014-12-10 11:37:19', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/3'),
+        '2014-12-10 11:37:19', '2014-12-20'),
        (4, 'Hoth', 23, 549, 7200, 'frozen', '1.1 standard', 'tundra, ice caves, mountain ranges', 100, NULL,
-        '2014-12-10 11:39:13', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/4'),
+        '2014-12-10 11:39:13', '2014-12-20'),
        (5, 'Dagobah', 23, 341, 8900, 'murky', 'N/A', 'swamp, jungles', 8, NULL, '2014-12-10 11:42:22',
-        '2014-12-20 20:58:18', 'https://swapi.info/api/planets/5'),
+        '2014-12-20'),
        (6, 'Bespin', 12, 5110, 118000, 'temperate', '1.5 (surface), 1 standard (Cloud City)', 'gas giant', 0, 6000000,
-        '2014-12-10 11:43:55', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/6'),
+        '2014-12-10 11:43:55', '2014-12-20'),
        (7, 'Endor', 18, 402, 4900, 'temperate', '0.85 standard', 'forests, mountains, lakes', 8, 30000000,
-        '2014-12-10 11:50:29', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/7'),
+        '2014-12-10 11:50:29', '2014-12-20'),
        (8, 'Naboo', 26, 312, 12120, 'temperate', '1 standard', 'grassy hills, swamps, forests, mountains', 12,
-        4500000000, '2014-12-10 11:52:31', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/8'),
+        4500000000, '2014-12-10 11:52:31', '2014-12-20'),
        (9, 'Coruscant', 24, 368, 12240, 'temperate', '1 standard', 'cityscape, mountains', NULL, 1000000000000,
-        '2014-12-10 11:54:13', '2014-12-20 20:58:18', 'https://swapi.info/api/planets/9'),
+        '2014-12-10 11:54:13', '2014-12-20'),
        (10, 'Kamino', 27, 463, 19720, 'temperate', '1 standard', 'ocean', 100, 1000000000, '2014-12-10 12:45:06',
-        '2014-12-20 20:58:18', 'https://swapi.info/api/planets/10');
+        '2014-12-20');
 
 
 INSERT INTO planet_residents (planet_id, resident_url)

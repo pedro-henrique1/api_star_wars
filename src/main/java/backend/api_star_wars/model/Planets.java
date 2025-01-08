@@ -3,11 +3,10 @@ package backend.api_star_wars.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Date;
 import java.util.List;
@@ -37,7 +36,7 @@ public class Planets {
 
     private Integer surface_water;
 
-    private BigInteger population;
+    private BigDecimal population;
 
     @CreationTimestamp
     private Date created_at;

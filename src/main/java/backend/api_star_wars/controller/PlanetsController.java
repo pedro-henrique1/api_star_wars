@@ -17,7 +17,7 @@ public class PlanetsController {
     }
 
     @GetMapping
-    public ResponseEntity<?> GetPlanets(@RequestParam(required = false) String planet) {
+    public ResponseEntity<?> GetPlanets(@RequestParam String planet) {
         return planetsService.GetSearchPlanets(planet);
     }
 }
