@@ -1,31 +1,116 @@
 CREATE TABLE planets
 (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    name            VARCHAR(100) NOT NULL,
-    rotation_period INT,
-    orbital_period  INT,
-    diameter        INT,
+    id              SERIAL PRIMARY KEY,
+    edited          TIMESTAMP,
     climate         VARCHAR(255),
-    gravity         VARCHAR(50),
+    surface_water   VARCHAR(255),
+    name            VARCHAR(255),
+    diameter        INTEGER,
+    rotation_period INTEGER,
+    created         TIMESTAMP,
     terrain         VARCHAR(255),
-    surface_water   INT,
-    population      BIGINT,
-    created_at      DATETIME,
-    edited_at       DATETIME
+    gravity         VARCHAR(255),
+    orbital_period  INTEGER,
+    population      BIGINT
+);
+
+CREATE TABLE people
+(
+    id         SERIAL PRIMARY KEY,
+    name       VARCHAR(255),
+    gender     VARCHAR(50),
+    skin_color VARCHAR(50),
+    hair_color VARCHAR(50),
+    height     INTEGER,
+    eye_color  VARCHAR(50),
+    mass       DOUBLE PRECISION,
+    homeworld  INTEGER REFERENCES planets (id),
+    birth_year VARCHAR(50),
+    created    TIMESTAMP
+);
+
+CREATE TABLE species
+(
+    id               SERIAL PRIMARY KEY,
+    edited           TIMESTAMP,
+    classification   VARCHAR(255),
+    name             VARCHAR(255),
+    designation      VARCHAR(255),
+    created          TIMESTAMP,
+    eye_colors       VARCHAR(255),
+    hair_colors      VARCHAR(255),
+    skin_colors      VARCHAR(255),
+    language         VARCHAR(255),
+    homeworld        INTEGER REFERENCES planets (id),
+    average_lifespan INTEGER,
+    average_height   INTEGER
+);
+
+CREATE TABLE films
+(
+    id            SERIAL PRIMARY KEY,
+    title         VARCHAR(255),
+    episode_id    INTEGER,
+    director      VARCHAR(255),
+    producer      VARCHAR(255),
+    release_date  DATE,
+    opening_crawl TEXT,
+    created       TIMESTAMP,
+    edited        TIMESTAMP
+);
+
+CREATE TABLE starships
+(
+    id                SERIAL PRIMARY KEY,
+    MGLT              VARCHAR(50),
+    starship_class    VARCHAR(255),
+    hyperdrive_rating VARCHAR(50)
+);
+
+CREATE TABLE vehicles
+(
+    id            SERIAL PRIMARY KEY,
+    vehicle_class VARCHAR(255)
 );
 
 CREATE TABLE planet_residents
 (
-    id           INT AUTO_INCREMENT PRIMARY KEY,
-    planet_id    INT NOT NULL,
-    resident_url VARCHAR(255),
-    FOREIGN KEY (planet_id) REFERENCES planets (id) ON DELETE CASCADE
+    planet_id INTEGER REFERENCES planets (id),
+    person_id INTEGER REFERENCES people (id),
+    PRIMARY KEY (planet_id, person_id)
 );
 
-CREATE TABLE planet_films
+CREATE TABLE film_planets
 (
-    id        INT AUTO_INCREMENT PRIMARY KEY,
-    planet_id INT NOT NULL,
-    film_url  VARCHAR(255),
-    FOREIGN KEY (planet_id) REFERENCES planets (id) ON DELETE CASCADE
+    film_id   INTEGER REFERENCES films (id),
+    planet_id INTEGER REFERENCES planets (id),
+    PRIMARY KEY (film_id, planet_id)
+);
+
+CREATE TABLE film_characters
+(
+    film_id      INTEGER REFERENCES films (id),
+    character_id INTEGER REFERENCES people (id),
+    PRIMARY KEY (film_id, character_id)
+);
+
+CREATE TABLE film_species
+(
+    film_id    INTEGER REFERENCES films (id),
+    species_id INTEGER REFERENCES species (id),
+    PRIMARY KEY (film_id, species_id)
+);
+
+CREATE TABLE starship_pilots
+(
+    starship_id INTEGER REFERENCES starships (id),
+    pilot_id    INTEGER REFERENCES people (id),
+    PRIMARY KEY (starship_id, pilot_id)
+);
+
+CREATE TABLE vehicle_pilots
+(
+    vehicle_id INTEGER REFERENCES vehicles (id),
+    pilot_id   INTEGER REFERENCES people (id),
+    PRIMARY KEY (vehicle_id, pilot_id)
 );

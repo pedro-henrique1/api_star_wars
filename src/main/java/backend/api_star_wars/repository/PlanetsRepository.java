@@ -1,6 +1,6 @@
 package backend.api_star_wars.repository;
 
-import backend.api_star_wars.dto.PlanetDetailsDto;
+//import backend.api_star_wars.dto.PlanetDetailsDto;
 import backend.api_star_wars.model.Planets;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,6 +21,6 @@ public interface PlanetsRepository extends JpaRepository<Planets, Integer> {
                                WHERE
                                    p.name =  :name
             \s""", nativeQuery = true)
-    List<PlanetDetailsDto> searchPlanetsByName(String name);
+    List<?> searchPlanetsByName(String name);
 }
 //SELECT * from planets left join api_star_wars.planet_films pf on planets.id = pf.planet_id where name = "Hoth";
