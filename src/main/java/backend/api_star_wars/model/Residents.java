@@ -17,7 +17,7 @@ public class Residents {
 
     @ManyToOne
     @JoinColumn(name = "planet_id", nullable = false)
-    private Planets planet_id;
+    private Planet planet_id;
 
     private String resident_url;
 
