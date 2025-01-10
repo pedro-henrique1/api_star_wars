@@ -1,14 +1,28 @@
 package backend.api_star_wars.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Starship extends Transport {
-    private String hyperdriveRating;
-    private String mglt;
-    private String starshipClass;
+@Entity
+@Table(name = "starships")
+@Data
+public class Starship  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private List<Person> newPilots;
+    private String MGLT;
+    private String starshipClass;
+    private String hyperdriveRating;
+
+    @ManyToMany
+    @JoinTable(
+            name = "starship_pilots",
+            joinColumns = @JoinColumn(name = "starship_id"),
+            inverseJoinColumns = @JoinColumn(name = "pilot_id")
+    )
+    private List<Person> pilots;
 }

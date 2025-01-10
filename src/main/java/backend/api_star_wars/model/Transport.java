@@ -1,28 +1,32 @@
 package backend.api_star_wars.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
+@Table(name = "transport")
 @Data
 public class Transport {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String name;
-    private String model;
-    private String manufacturer;
-    private String costInCredits;
-    private String length;
-    private String maxAtmospheringSpeed;
-    private String crew;
-    private String passengers;
-    private String cargoCapacity;
+    private Timestamp edited;
     private String consumables;
-    private LocalDateTime created;
-    private LocalDateTime edited;
+    private String name;
+    private Timestamp created;
+    private Long cargoCapacity;
+    private Integer passengers;
+    private Integer maxAtmospheringSpeed;
+    private Integer crew;
+    private Double length;
+    private String model;
+    private Long costInCredits;
+    private String manufacturer;
+
 
 }
