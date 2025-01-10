@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PlanetsService {
@@ -17,7 +16,7 @@ public class PlanetsService {
     }
 
     public ResponseEntity<?> GetSearchPlanets(String planet) {
-        List<?> result = planetsRepository.searchPlanetsByName(planet);
+        List<?> result = planetsRepository.findPlanetsByName(planet);
         return ResponseEntity.ok(result);
     }
 }
