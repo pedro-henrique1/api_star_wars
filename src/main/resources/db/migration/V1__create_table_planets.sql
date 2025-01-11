@@ -75,42 +75,42 @@ CREATE TABLE vehicles
 
 CREATE TABLE planet_residents
 (
-    planet_id INTEGER REFERENCES planets (id),
-    person_id INTEGER REFERENCES people (id),
+    planet_id BIGINT REFERENCES planets (id),
+    person_id BIGINT REFERENCES people (id),
     PRIMARY KEY (planet_id, person_id)
 );
 
 CREATE TABLE film_planets
 (
-    film_id   INTEGER REFERENCES films (id),
-    planet_id INTEGER REFERENCES planets (id),
+    film_id   BIGINT REFERENCES films (id),
+    planet_id BIGINT REFERENCES planets (id),
     PRIMARY KEY (film_id, planet_id)
 );
 
 CREATE TABLE film_characters
 (
-    film_id      INTEGER REFERENCES films (id),
-    character_id INTEGER REFERENCES people (id),
+    film_id      BIGINT REFERENCES films (id),
+    character_id BIGINT REFERENCES people (id),
     PRIMARY KEY (film_id, character_id)
 );
 
 CREATE TABLE film_species
 (
-    film_id    INTEGER REFERENCES films (id),
-    species_id INTEGER REFERENCES species (id),
+    film_id    BIGINT REFERENCES films (id),
+    species_id BIGINT REFERENCES species (id),
     PRIMARY KEY (film_id, species_id)
 );
 
 CREATE TABLE starship_pilots
 (
-    starship_id INTEGER REFERENCES starships (id),
-    pilot_id    INTEGER REFERENCES people (id),
+    starship_id BIGINT REFERENCES starships (id),
+    pilot_id    BIGINT REFERENCES people (id),
     PRIMARY KEY (starship_id, pilot_id)
 );
 
 CREATE TABLE vehicle_pilots
 (
-    vehicle_id INTEGER REFERENCES vehicles (id),
-    pilot_id   INTEGER REFERENCES people (id),
+    vehicle_id BIGINT REFERENCES vehicles (id),
+    pilot_id   BIGINT REFERENCES people (id),
     PRIMARY KEY (vehicle_id, pilot_id)
 );
